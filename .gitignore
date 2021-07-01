@@ -1,0 +1,18 @@
+.*
+#### Except
+!.nvmrc
+!.gitignore
+!.github
+!.eslintrc.json
+
+#### Dependancies
+/node_modules
+
+#### Generated
+/dist
+/replays
+/errorlogs
+
+#### Misc
+npm-debug.log
+screeps.json
