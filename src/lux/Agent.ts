@@ -1,12 +1,12 @@
 import fs from "fs";
 import readline from "readline";
-import {INPUT_CONSTANTS} from "./io";
 import {Player} from "./Player";
 import {GameMap} from "./GameMap";
 import {City} from "./City";
 import {Unit} from "./Unit";
 import {Parser} from "./Parser";
 import {Parsed} from "./Parsed";
+import {INPUT_CONSTANTS} from "./game_constants";
 
 // Create parser and use ',' as the delimiter between commands being sent by the `Match` and `MatchEngine`
 const parse = new Parser(' ');
@@ -187,12 +187,16 @@ export class Agent {
     console.log('D_FINISH');
   }
 
-  public async run(loop: (gameState: GameState) => Promise<Array<string>>): Promise<void> {
+  public async run(loop: (gameState: GameState) => Array<string>): Promise<void> {
     await this.initialize();
     while (true) {
       await this.update();
-      const actions = await loop(this.gameState);
-      console.log(actions.join(","));
+      try {
+        const actions = loop(this.gameState);
+        console.log(actions.join(","));
+      } catch (err) {
+        console.log(err);
+      }
       this.endTurn();
     }
   }

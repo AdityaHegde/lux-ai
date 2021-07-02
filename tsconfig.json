@@ -10,14 +10,9 @@
     "sourceMap": true,
     "declaration": false,
 
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@memory/*": ["src/memory/*"]
-    }
+    "outDir": "dist"
   },
   "include": [
-    "src/lux/**/*",
     "src/**/*",
     "scripts/**/*",
     "test/**/*"

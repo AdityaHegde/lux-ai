@@ -1,6 +1,8 @@
 import {GAME_CONSTANTS} from "./game_constants";
 const {DIRECTIONS} = GAME_CONSTANTS;
 
+export type ArrayPosition = [x: number, y: number];
+
 export class Position {
   public x: number;
   public y: number;
@@ -14,7 +16,6 @@ export class Position {
     const dx = this.x - pos.x;
     const dy = this.y - pos.y;
     return Math.abs(dx) + Math.abs(dy) <= 1;
-
   }
 
   public equals(pos: Position): boolean {

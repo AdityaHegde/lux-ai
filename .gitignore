@@ -3,7 +3,7 @@
 !.nvmrc
 !.gitignore
 !.github
-!.eslintrc.json
+!.eslintrc.js
 
 #### Dependancies
 /node_modules
